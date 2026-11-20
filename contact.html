@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <!-- Thème et écran de chargement : en premier, pour être en place avant tout affichage -->
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/precharge.js"></script>
+    <meta name="theme-color" content="#06122E">
+    <meta name="color-scheme" content="light dark">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Jerome Innovation et Technologie</title>
+    <meta name="description" content="Contactez Jerome Innovation et Technologie à Pointe-Noire : téléphone, e-mail, formulaire et plan d'accès.">
+
+    <!-- Police de texte -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400..700&display=swap" rel="stylesheet">
+
+    <!-- Icônes -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!-- Styles du site (chargés avant Tailwind pour que les classes utilitaires gardent la priorité) -->
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/sombre.css">
+
+    <!-- Tailwind CSS (CDN) et sa configuration -->
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <script src="assets/js/tailwind-config.js"></script>
+
+  </head>
+
+  <body class="m-0 bg-[#F3F7FB] text-white font-sans text-[16px] leading-[1.65] antialiased overflow-x-hidden">
+    <a href="#contenu" class="fixed left-4 top-[-60px] z-[90] bg-white text-ink font-semibold py-2 px-4 rounded-[10px] focus:top-3">Aller au contenu</a>
+
+    <!-- ========== BARRE DE PROGRESSION ========== -->
+    <div id="progress" class="fixed top-0 left-0 z-[80] h-[3px] w-0 bg-[linear-gradient(90deg,#1F5FD1,#27A8E0)]"></div>
+
+    <!-- ========== BARRE D'INFOS ========== -->
+    <div class="bg-jit-navy text-[#9FB0D0] text-[13px] [@media(max-width:760px)]:hidden">
+      <div class="max-w-[1240px] mx-auto pl-[max(20px,env(safe-area-inset-left,0px))] pr-[max(20px,env(safe-area-inset-right,0px))] flex justify-between items-center gap-4 h-[42px]">
+        <div class="flex gap-[22px] items-center">
+          <span><i aria-hidden="true" class="ri-map-pin-2-fill text-jit-amber mr-[6px]"></i>Avenue du Général de Gaulle, <b class="text-white font-medium">Pointe-Noire</b></span>
+          <span><i aria-hidden="true" class="ri-mail-fill text-jit-amber mr-[6px]"></i><a class="text-white font-medium hover:text-jit-amber" href="mailto:contact@jerome-innovation.com">contact@jerome-innovation.com</a></span>
+          <span class="[@media(max-width:1150px)]:hidden"><i aria-hidden="true" class="ri-time-fill text-jit-amber mr-[6px]"></i>Lun. au ven. : 8h00 à 17h00</span>
+        </div>
+        <div class="flex gap-[22px] items-center">
+          <span><i aria-hidden="true" class="ri-phone-fill text-jit-amber mr-[6px]"></i><a class="text-white font-medium hover:text-jit-amber" href="tel:+242069691866">+242 06 969 18 66</a></span>
+          <div class="flex gap-2">
+            <a class="w-[30px] h-[30px] rounded-full grid place-items-center bg-[rgba(255,255,255,.07)] text-white text-[13px] hover:bg-jit-royal" href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><i aria-hidden="true" class="ri-facebook-fill"></i></a>
+            <a class="w-[30px] h-[30px] rounded-full grid place-items-center bg-[rgba(255,255,255,.07)] text-white text-[13px] hover:bg-jit-royal" href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn"><i aria-hidden="true" class="ri-linkedin-fill"></i></a>
+            <a class="w-[30px] h-[30px] rounded-full grid place-items-center bg-[rgba(255,255,255,.07)] text-white text-[13px] hover:bg-jit-royal" href="https://wa.me/242069691866" target="_blank" rel="noopener" aria-label="WhatsApp"><i aria-hidden="true" class="ri-whatsapp-fill"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== EN-TÊTE ========== -->
+    <header id="hdr" class="group/hdr sticky top-[env(safe-area-inset-top,0px)] z-[60] pt-[26px] mb-[-90px] [transition:padding_.3s] [&.scrolled]:pt-3 [@media(max-width:760px)]:pt-[10px]">
+      <div class="max-w-[1240px] mx-auto pl-[max(20px,env(safe-area-inset-left,0px))] pr-[max(20px,env(safe-area-inset-right,0px))]">
+        <div class="flex items-center justify-between gap-4 bg-[rgba(255,255,255,.97)] [backdrop-filter:blur(12px)] rounded-full py-2 pr-2 pl-5 [box-shadow:0_14px_40px_-18px_rgba(6,18,46,.45)] border border-solid border-[rgba(220,228,238,.8)] [@media(max-width:1150px)]:group-[.open]/hdr:flex-wrap [@media(max-width:1150px)]:group-[.open]/hdr:rounded-[22px]">
+          <a class="flex items-center gap-[10px]" href="index.html" aria-label="Jerome Innovation et Technologie, accueil"><img width="160" height="46" class="block h-[46px] w-auto [@media(max-width:760px)]:h-[38px]" src="assets/img/logo.png" alt="Jerome Innovation et Technologie"></a>
+          <nav id="nav" class="flex gap-0 [@media(max-width:1150px)]:hidden [@media(max-width:1150px)]:group-[.open]/hdr:flex [@media(max-width:1150px)]:group-[.open]/hdr:flex-col [@media(max-width:1150px)]:group-[.open]/hdr:w-full [@media(max-width:1150px)]:group-[.open]/hdr:order-3 [@media(max-width:1150px)]:group-[.open]/hdr:pt-2" aria-label="Navigation principale">
+            <a class="text-[15px] font-medium text-jit-txt py-[9px] px-[9px] rounded-full whitespace-nowrap [transition:background_.2s,color_.2s] hover:bg-jit-paper hover:text-ink" href="index.html">Accueil</a>
+            <a class="text-[15px] font-medium text-jit-txt py-[9px] px-[9px] rounded-full whitespace-nowrap [transition:background_.2s,color_.2s] hover:bg-jit-paper hover:text-ink" href="a-propos.html">À propos</a>
+            <a class="text-[15px] font-medium text-jit-txt py-[9px] px-[9px] rounded-full whitespace-nowrap [transition:background_.2s,color_.2s] hover:bg-jit-paper hover:text-ink" href="solutions.html">Nos solutions</a>
+            <a class="text-[15px] font-medium text-jit-txt py-[9px] px-[9px] rounded-full whitespace-nowrap [transition:background_.2s,color_.2s] hover:bg-jit-paper hover:text-ink" href="categories.html">Catégories</a>
+            <a class="text-[15px] font-medium text-jit-txt py-[9px] px-[9px] rounded-full whitespace-nowrap [transition:background_.2s,color_.2s] hover:bg-jit-paper hover:text-ink" href="realisations.html">Réalisations</a>
+            <a class="text-[15px] font-medium text-jit-txt py-[9px] px-[9px] rounded-full whitespace-nowrap [transition:background_.2s,color_.2s] hover:bg-jit-paper hover:text-ink" href="actualites.html">Actualités</a>
+            <a class="text-[15px] font-medium text-jit-txt py-[9px] px-[9px] rounded-full whitespace-nowrap [transition:background_.2s,color_.2s] hover:bg-jit-paper hover:text-ink" href="carrieres.html">Carrières</a>
+            <a class="text-[15px] font-semibold text-white bg-jit-royal py-[9px] px-[9px] rounded-full whitespace-nowrap" aria-current="page" href="contact.html">Contact</a>
+          </nav>
+          <div class="flex items-center gap-[10px]">
+            <div id="lang" class="flex [@media(max-width:1359px)]:hidden bg-jit-paper rounded-full p-[3px] [@media(max-width:1150px)]:hidden" role="group" aria-label="Langue">
+              <button type="button" id="l-fr" class="on border-0 [background:none] font-jit font-semibold text-[13px] leading-[normal] py-[6px] px-[10px] rounded-full text-mut cursor-pointer [&.on]:bg-white [&.on]:text-ink [&.on]:[box-shadow:0_1px_3px_rgba(6,18,46,.15)]">FR</button>
+              <button type="button" id="l-en" class="border-0 [background:none] font-jit font-semibold text-[13px] leading-[normal] py-[6px] px-[10px] rounded-full text-mut cursor-pointer [&.on]:bg-white [&.on]:text-ink [&.on]:[box-shadow:0_1px_3px_rgba(6,18,46,.15)]">EN</button>
+            </div>
+            <a class="inline-flex items-center justify-center gap-[9px] font-jit font-semibold text-[15px] leading-[normal] py-[13px] px-[22px] rounded-full border-[1.5px] border-solid border-transparent cursor-pointer whitespace-nowrap bg-jit-royal text-white [transition:background_.2s,transform_.2s,border-color_.2s,color_.2s] hover:bg-jit-royal2 hover:[transform:translateY(-1px)] [@media(max-width:1150px)]:hidden [@media(max-width:1150px)]:group-[.open]/hdr:inline-flex" href="devis.html"><i aria-hidden="true" class="ri-file-text-line text-[16px]"></i>Demander un devis</a>
+            <button id="burger" class="hidden bg-jit-paper border-0 w-11 h-11 rounded-full text-ink text-[20px] cursor-pointer [@media(max-width:1150px)]:grid [@media(max-width:1150px)]:place-items-center" type="button" aria-label="Menu" aria-expanded="false"><i aria-hidden="true" class="ri-menu-line"></i></button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="contenu">
+    <!-- ========== EN-TÊTE DE PAGE ========== -->
+    <section id="haut" class="relative mx-[max(12px,1.2vw)] mt-3 rounded-[28px] overflow-hidden min-h-[400px] flex flex-col justify-end gap-10 pt-[150px] pb-12 bg-jit-navy [@media(max-width:760px)]:pt-[120px]">
+      <div class="absolute inset-0 z-0 bg-cover bg-center bg-[url('https://images.unsplash.com/photo-1579389083078-4e7018379f7e?auto=format&fit=crop&w=2000&q=80')]"></div>
+      <div class="absolute inset-0 z-0 bg-[linear-gradient(90deg,rgba(6,18,46,.93),rgba(6,18,46,.7)_55%,rgba(6,18,46,.3)),linear-gradient(to_top,rgba(6,18,46,.65),transparent_55%)]"></div>
+      <div class="relative z-10 max-w-[1240px] w-full mx-auto pl-[max(20px,env(safe-area-inset-left,0px))] pr-[max(20px,env(safe-area-inset-right,0px))]">
+        <nav class="flex items-center gap-1.5 text-[13px] text-slate-300 mb-6" aria-label="Fil d'Ariane">
+          <a href="index.html" class="text-slate-300 hover:text-white">Accueil</a>
+          <i aria-hidden="true" class="ri-arrow-right-s-line"></i>
+          <span class="text-white">Contact</span>
+        </nav>
+        <span class="inline-flex items-center gap-2 text-[12.5px] font-semibold tracking-[.14em] uppercase text-accent-400">Contact</span>
+        <h1 class="mt-4 mb-6 max-w-[880px] text-[length:clamp(30px,4.4vw,56px)] font-bold tracking-[-.02em] leading-[1.1] [text-wrap:balance] text-white">Parlons de votre projet</h1>
+        <p class="m-0 text-slate-200 text-base sm:text-[18px] max-w-2xl leading-relaxed">Notre équipe vous répond du lundi au vendredi. Écrivez-nous ou envoyez directement votre demande via le formulaire.</p>
+      </div>
+    </section>
+
+    <!-- ========== NOS COORDONNÉES ========== -->
+    <section class="bg-white py-[96px] [@media(max-width:900px)]:py-[72px]">
+      <div class="max-w-[1240px] mx-auto pl-[max(20px,env(safe-area-inset-left,0px))] pr-[max(20px,env(safe-area-inset-right,0px))]">
+        <div class="grid gap-[14px] mb-[52px] justify-items-center text-center max-w-[760px] mx-auto">
+          <span class="inline-flex items-center gap-2 text-[12.5px] font-semibold tracking-[.14em] uppercase text-primary-500">Nos coordonnées</span>
+          <h2 class="m-0 leading-[1.15] tracking-[-.02em] [text-wrap:balance] text-[length:clamp(28px,3.4vw,40px)] font-bold text-ink">Comment nous joindre</h2>
+          <p class="m-0 text-mut text-[16px] max-w-[620px]">Nous sommes basés à Pointe-Noire et intervenons dans toute l'Afrique centrale.</p>
+        </div>
+        <div class="grid grid-cols-4 gap-5 [@media(max-width:900px)]:grid-cols-2 [@media(max-width:600px)]:!grid-cols-1">
+          <div class="bg-white rounded-[22px] p-6 border border-solid border-background-300">
+            <span class="w-12 h-12 rounded-[12px] grid place-items-center bg-primary-50 text-primary-500 text-[22px]"><i aria-hidden="true" class="ri-map-pin-line"></i></span>
+            <p class="mt-4 mb-1 text-[13px] font-bold uppercase tracking-[.12em] text-mut">Adresse</p>
+            <p class="m-0 text-ink font-semibold text-[15px] leading-[1.5] [overflow-wrap:anywhere]">Avenue du Général de Gaulle,<br>Pointe-Noire, République du Congo</p>
+          </div>
+          <div class="bg-white rounded-[22px] p-6 border border-solid border-background-300">
+            <span class="w-12 h-12 rounded-[12px] grid place-items-center bg-primary-50 text-primary-500 text-[22px]"><i aria-hidden="true" class="ri-phone-line"></i></span>
+            <p class="mt-4 mb-1 text-[13px] font-bold uppercase tracking-[.12em] text-mut">Téléphone</p>
+            <p class="m-0 text-ink font-semibold text-[15px] leading-[1.5] [overflow-wrap:anywhere]"><a href="tel:+242069691866" class="text-ink hover:text-primary-500">+242 06 969 18 66</a></p>
+          </div>
+          <div class="bg-white rounded-[22px] p-6 border border-solid border-background-300">
+            <span class="w-12 h-12 rounded-[12px] grid place-items-center bg-primary-50 text-primary-500 text-[22px]"><i aria-hidden="true" class="ri-mail-line"></i></span>
+            <p class="mt-4 mb-1 text-[13px] font-bold uppercase tracking-[.12em] text-mut">E-mail</p>
+            <p class="m-0 text-ink font-semibold text-[15px] leading-[1.5] [overflow-wrap:anywhere]"><a href="mailto:contact@jerome-innovation.com" class="text-ink hover:text-primary-500">contact@jerome-innovation.com</a></p>
+          </div>
+          <div class="bg-white rounded-[22px] p-6 border border-solid border-background-300">
+            <span class="w-12 h-12 rounded-[12px] grid place-items-center bg-primary-50 text-primary-500 text-[22px]"><i aria-hidden="true" class="ri-time-line"></i></span>
+            <p class="mt-4 mb-1 text-[13px] font-bold uppercase tracking-[.12em] text-mut">Horaires</p>
+            <p class="m-0 text-ink font-semibold text-[15px] leading-[1.5] [overflow-wrap:anywhere]">Lundi au vendredi<br>8h00 à 17h00</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FORMULAIRE ========== -->
+    <section class="bg-[#F3F7FB] py-[96px] [@media(max-width:900px)]:py-[72px]">
+      <div class="max-w-[1240px] mx-auto pl-[max(20px,env(safe-area-inset-left,0px))] pr-[max(20px,env(safe-area-inset-right,0px))]">
+        <div class="grid gap-[14px] mb-[52px] justify-items-center text-center max-w-[760px] mx-auto">
+          <span class="inline-flex items-center gap-2 text-[12.5px] font-semibold tracking-[.14em] uppercase text-primary-500">Formulaire de contact</span>
+          <h2 class="m-0 leading-[1.15] tracking-[-.02em] [text-wrap:balance] text-[length:clamp(28px,3.4vw,40px)] font-bold text-ink">Envoyez-nous un message</h2>
+          <p class="m-0 text-mut text-[16px] max-w-[620px]">Remplissez le formulaire ci-dessous, nous revenons vers vous dans les plus brefs délais.</p>
+        </div>
+        <div class="grid grid-cols-[1.3fr_.7fr] gap-8 items-start [@media(max-width:900px)]:grid-cols-[1fr]">
+          <div class="bg-white rounded-[22px] border border-solid border-background-300 p-8 [box-shadow:0_30px_60px_-40px_rgba(6,18,46,.35)] [@media(max-width:600px)]:p-5">
+            <form id="ct-form" data-form="ct-form-ok" novalidate>
+              <div class="grid grid-cols-2 gap-5 [@media(max-width:600px)]:grid-cols-1">
+                <div class="">
+                  <label for="ct-nom" class="block mb-1.5 text-[13px] font-semibold text-ink">Nom complet</label>
+                  <input autocomplete="name" name="nom" id="ct-nom" type="text" class="block w-full border border-solid border-background-300 rounded-[10px] px-[14px] py-[11px] [font-family:inherit] text-[16px] text-ink bg-white outline-none transition focus:border-primary-500 focus:[box-shadow:0_0_0_3px_#DBEDFF] [&.err]:border-[#C4332B] [&.err]:[box-shadow:0_0_0_3px_#FBE3E1]" placeholder="Votre nom et prénom" required>
+                  <p class="mt-1.5 mb-0 text-[13px] text-[#C4332B]" data-err-for="ct-nom" hidden>Ce champ est obligatoire.</p>
+                </div>
+                <div class="">
+                  <label for="ct-mail" class="block mb-1.5 text-[13px] font-semibold text-ink">Adresse e-mail</label>
+                  <input spellcheck="false" autocomplete="email" name="mail" id="ct-mail" type="email" class="block w-full border border-solid border-background-300 rounded-[10px] px-[14px] py-[11px] [font-family:inherit] text-[16px] text-ink bg-white outline-none transition focus:border-primary-500 focus:[box-shadow:0_0_0_3px_#DBEDFF] [&.err]:border-[#C4332B] [&.err]:[box-shadow:0_0_0_3px_#FBE3E1]" placeholder="vous@exemple.com" required>
+                  <p class="mt-1.5 mb-0 text-[13px] text-[#C4332B]" data-err-for="ct-mail" hidden>Merci de saisir une adresse e-mail valide.</p>
+                </div>
+                <div class="">
+                  <label for="ct-tel" class="block mb-1.5 text-[13px] font-semibold text-ink">Téléphone <small class="font-normal text-mut">(facultatif)</small></label>
+                  <input inputmode="tel" autocomplete="tel" name="tel" id="ct-tel" type="tel" class="block w-full border border-solid border-background-300 rounded-[10px] px-[14px] py-[11px] [font-family:inherit] text-[16px] text-ink bg-white outline-none transition focus:border-primary-500 focus:[box-shadow:0_0_0_3px_#DBEDFF] [&.err]:border-[#C4332B] [&.err]:[box-shadow:0_0_0_3px_#FBE3E1]" placeholder="+242 06 000 00 00">
+                </div>
+                <div class="">
+                  <label for="ct-obj" class="block mb-1.5 text-[13px] font-semibold text-ink">Objet de votre demande</label>
+                  <select id="ct-obj" class="block w-full border border-solid border-background-300 rounded-[10px] px-[14px] py-[11px] [font-family:inherit] text-[16px] text-ink bg-white outline-none transition focus:border-primary-500 focus:[box-shadow:0_0_0_3px_#DBEDFF] [&.err]:border-[#C4332B] [&.err]:[box-shadow:0_0_0_3px_#FBE3E1] cursor-pointer" required>
+                    <option value="">Choisissez un objet</option>
+                    <option>Demande générale</option>
+                    <option>Demande de devis</option>
+                    <option>Partenariat</option>
+                    <option>Candidature</option>
+                    <option>Support technique</option>
+                  </select>
+                  <p class="mt-1.5 mb-0 text-[13px] text-[#C4332B]" data-err-for="ct-obj" hidden>Ce champ est obligatoire.</p>
+                </div>
+                <div class="col-span-2 [@media(max-width:600px)]:col-span-1">
+                  <label for="ct-msg" class="block mb-1.5 text-[13px] font-semibold text-ink">Votre message</label>
+                  <textarea id="ct-msg" class="block w-full border border-solid border-background-300 rounded-[10px] px-[14px] py-[11px] [font-family:inherit] text-[16px] text-ink bg-white outline-none transition focus:border-primary-500 focus:[box-shadow:0_0_0_3px_#DBEDFF] [&.err]:border-[#C4332B] [&.err]:[box-shadow:0_0_0_3px_#FBE3E1] min-h-[140px] resize-y" placeholder="Décrivez votre besoin en quelques lignes…" required></textarea>
+                  <p class="mt-1.5 mb-0 text-[13px] text-[#C4332B]" data-err-for="ct-msg" hidden>Ce champ est obligatoire.</p>
+                </div>
+              </div>
+              <p class="mt-5 mb-5 text-[13px] text-mut">En envoyant ce formulaire, vous acceptez que nous utilisions vos coordonnées pour vous répondre.</p>
+              <button type="submit" class="inline-flex items-center justify-center gap-2 font-jit font-semibold text-[15px] leading-[normal] py-[12px] px-[24px] rounded-full border border-solid cursor-pointer whitespace-nowrap [transition:background_.2s,transform_.2s,border-color_.2s,color_.2s] hover:[transform:translateY(-1px)] border-transparent bg-jit-royal text-white hover:bg-jit-royal2 w-full py-[14px]"><i aria-hidden="true" class="ri-send-plane-fill"></i>Envoyer le message</button>
+            </form>
+            <div id="ct-form-ok" class="text-center py-10" hidden>
+              <span class="mx-auto w-16 h-16 rounded-full grid place-items-center bg-[#E3F6EC] text-[#1E9E5A] text-[30px]"><i aria-hidden="true" class="ri-check-line"></i></span>
+              <h3 class="mt-5 mb-2 mx-0 font-heading text-ink text-[20px] font-bold">Message envoyé</h3>
+              <p class="m-0 text-mut text-[15px]">Merci, nous revenons vers vous rapidement.</p>
+            </div>
+          </div>
+          <div class="grid gap-5 content-start">
+            <div class="relative h-[300px] rounded-[22px] overflow-hidden border border-solid border-background-300 bg-[#E8EEF5]">
+              <iframe title="Carte : Avenue du Général de Gaulle, Pointe-Noire" src="https://www.google.com/maps?q=Avenue%20du%20G%C3%A9n%C3%A9ral%20de%20Gaulle%2C%20Pointe-Noire&amp;output=embed" class="absolute inset-0 w-full h-full border-0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="rounded-[22px] p-6 bg-jit-navy text-[#C9D4EA]">
+              <h3 class="mt-0 mb-2 mx-0 font-heading text-white text-[17px] font-bold">Besoin d'une réponse rapide ?</h3>
+              <p class="mt-0 mb-4 text-[15px]">Appelez-nous ou écrivez-nous sur WhatsApp pendant nos heures d'ouverture.</p>
+              <div class="flex flex-wrap gap-3">
+                <a class="inline-flex items-center justify-center gap-2 font-jit font-semibold text-[15px] leading-[normal] py-[12px] px-[24px] rounded-full border border-solid cursor-pointer whitespace-nowrap [transition:background_.2s,transform_.2s,border-color_.2s,color_.2s] hover:[transform:translateY(-1px)] border-transparent bg-jit-amber text-jit-navy hover:bg-[#FFC24D] focus-visible:outline-white" href="tel:+242069691866"><i aria-hidden="true" class="ri-phone-fill"></i>Appeler</a>
+                <a class="inline-flex items-center justify-center gap-2 font-jit font-semibold text-[15px] leading-[normal] py-[12px] px-[24px] rounded-full border border-solid cursor-pointer whitespace-nowrap [transition:background_.2s,transform_.2s,border-color_.2s,color_.2s] hover:[transform:translateY(-1px)] border-[rgba(255,255,255,.35)] bg-[rgba(255,255,255,.04)] text-white hover:border-white" href="https://wa.me/242069691866" target="_blank" rel="noopener"><i aria-hidden="true" class="ri-whatsapp-line"></i>WhatsApp</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    </main>
+
+    <!-- ========== PIED DE PAGE ========== -->
+    <footer id="pied" class="relative bg-jit-navy text-slate-400 font-sans pt-[72px] pb-10 rounded-t-[32px]">
+      <div class="max-w-[1240px] w-full mx-auto pl-[max(20px,env(safe-area-inset-left,0px))] pr-[max(20px,env(safe-area-inset-right,0px))]">
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-16 border-0 border-b border-solid border-slate-800/60">
+
+          <!-- Logo et présentation -->
+          <div class="lg:col-span-4 space-y-6">
+            <span class="logo-pied inline-block"><img width="160" height="46" src="assets/img/logo.png" class="block h-[46px] w-auto" alt="Jerome Innovation et Technologie"></span>
+            <p class="m-0 text-[15px] text-slate-400 leading-relaxed max-w-sm">
+              Jerome Innovation et Technologie, filiale de Jerome holdings, met les drones, l'intelligence artificielle et l'énergie solaire au service de la sécurité et de la durabilité en Afrique centrale.
+            </p>
+            <div class="pt-1">
+              <span class="inline-block text-[13px] font-extrabold text-blue-400 uppercase tracking-widest bg-blue-950/40 border border-solid border-blue-900/40 px-2.5 py-1 rounded-md">Filiale de Jerome holdings</span>
+            </div>
+          </div>
+
+          <!-- Nos pôles -->
+          <div class="lg:col-span-2 space-y-4">
+            <h3 class="m-0 text-white font-bold text-[15px] uppercase tracking-wider">Nos pôles</h3>
+            <ul class="list-none m-0 p-0 space-y-2.5 text-[15px]">
+              <li><a href="solutions.html#drones" class="text-inherit hover:text-white transition-colors">Drones industriels</a></li>
+              <li><a href="solutions.html#securite" class="text-inherit hover:text-white transition-colors">Sécurité Électronique</a></li>
+              <li><a href="solutions.html#agritech" class="text-inherit hover:text-white transition-colors">Drone AgriTech</a></li>
+              <li><a href="solutions.html#solaire" class="text-inherit hover:text-white transition-colors">Énergie Solaire</a></li>
+              <li><a href="solutions.html#ia" class="text-inherit hover:text-white transition-colors">Innovation et IA</a></li>
+              <li><a href="solutions.html#gps" class="text-inherit hover:text-white transition-colors">Mobilité et suivi GPS</a></li>
+              <li><a href="solutions.html#agents" class="text-inherit hover:text-white transition-colors">Agents de sécurité</a></li>
+            </ul>
+          </div>
+
+          <!-- Entreprise -->
+          <div class="lg:col-span-2 space-y-4">
+            <h3 class="m-0 text-white font-bold text-[15px] uppercase tracking-wider">Entreprise</h3>
+            <ul class="list-none m-0 p-0 space-y-2.5 text-[15px]">
+              <li><a href="a-propos.html" class="text-inherit hover:text-white transition-colors">À propos</a></li>
+              <li><a href="realisations.html" class="text-inherit hover:text-white transition-colors">Réalisations</a></li>
+              <li><a href="categories.html" class="text-inherit hover:text-white transition-colors">Catégories</a></li>
+              <li><a href="actualites.html" class="text-inherit hover:text-white transition-colors">Actualités</a></li>
+              <li><a href="carrieres.html" class="text-inherit hover:text-white transition-colors">Carrières</a></li>
+              <li><a href="contact.html" class="text-inherit hover:text-white transition-colors">Contact</a></li>
+            </ul>
+          </div>
+
+          <!-- Contact et lettre d'information -->
+          <div class="lg:col-span-4 space-y-6">
+            <div class="space-y-4">
+              <h3 class="m-0 text-white font-bold text-[15px] uppercase tracking-wider">Contact</h3>
+              <ul class="list-none m-0 p-0 space-y-2.5 text-[15px] text-slate-400">
+                <li class="flex items-start gap-2.5">
+                  <svg aria-hidden="true" class="w-4 h-4 text-jit-amber shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                  <span>Pointe-Noire, République du Congo</span>
+                </li>
+                <li class="flex items-center gap-2.5">
+                  <svg aria-hidden="true" class="w-4 h-4 text-jit-amber shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                  <a href="tel:+242069691866" class="text-inherit hover:text-white transition-colors">+242 06 969 18 66</a>
+                </li>
+                <li class="flex items-center gap-2.5">
+                  <svg aria-hidden="true" class="w-4 h-4 text-jit-amber shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                  <a href="mailto:contact@jerome-innovation.com" class="text-inherit hover:text-white transition-colors">contact@jerome-innovation.com</a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="space-y-3 pt-1">
+              <h3 class="m-0 text-white font-bold text-[15px] uppercase tracking-wider">Lettre d'information</h3>
+              <p class="m-0 text-[15px] text-slate-400 leading-relaxed">Recevez nos actualités et nos analyses technologiques, une fois par mois.</p>
+              <form id="nl-form" class="space-y-2" novalidate>
+                <input name="email" autocomplete="email" spellcheck="false" type="email" required aria-label="Votre adresse e-mail" placeholder="vous@exemple.com" class="block w-full bg-[#0B1733] border border-solid border-slate-800 rounded-[10px] px-3.5 py-2.5 [font-family:inherit] text-[16px] text-white placeholder-slate-400 outline-none focus:border-blue-500 transition">
+                <button type="submit" class="w-full bg-jit-royal hover:bg-jit-royal2 text-white [font-family:inherit] font-semibold text-[15px] py-3 px-4 rounded-[10px] border-0 cursor-pointer flex items-center justify-center gap-2 transition shadow-sm">
+                  <svg aria-hidden="true" class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+                  S'inscrire
+                </button>
+                <p id="nl-msg" class="m-0 min-h-[18px] text-[15px] text-accent-400" aria-live="polite"></p>
+              </form>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Bas de page -->
+        <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[15px] text-slate-400">
+          <p class="m-0">© 2027 Jerome Innovation et Technologie. Tous droits réservés.<span class="mx-2" aria-hidden="true">·</span>Réalisé par <span class="font-semibold text-white">JCPE-COM</span></p>
+          <div class="flex items-center gap-6">
+            <a href="mentions-legales.html" class="text-inherit hover:text-slate-300 transition-colors">Mentions légales</a>
+            <a href="confidentialite.html" class="text-inherit hover:text-slate-300 transition-colors">Politique de confidentialité</a>
+            <a href="#top" aria-label="Revenir en haut" class="w-9 h-9 rounded-xl bg-slate-800 hover:bg-jit-royal text-slate-300 hover:text-white flex items-center justify-center transition shadow-sm">
+              <svg aria-hidden="true" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"></path></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </footer>
+
+    <!-- ========== SCRIPTS ========== -->
+    
+    <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/animations.js" defer></script>
+    <script src="assets/js/widgets.js" defer></script>
+  </body>
+</html>
+

@@ -1,0 +1,163 @@
+/* ==========================================================================
+   Page d'accueil : carrousel animé du héros, FAQ, pôles, réalisations
+   ========================================================================== */
+/* Drone AgriTech : jets d'eau, brume et gouttes qui retombent des buses */
+.brume, .jet, .goutte { position: absolute; pointer-events: none; opacity: 0; }
+.brume { width: 26px; height: 38px; margin-left: -13px; margin-top: -4px;
+  background: radial-gradient(ellipse at 50% 0%, rgba(255,255,255,.65), rgba(160,225,255,0) 70%);
+  animation: brume .8s ease-out infinite; animation-delay: var(--r, 0s); }
+.jet { width: 3px; height: 46px; margin-left: -1.5px; border-radius: 3px; transform-origin: top;
+  background: linear-gradient(rgba(255,255,255,.95), rgba(160,225,255,0)); animation: jet .7s ease-out infinite; animation-delay: var(--r, 0s); }
+.goutte { width: var(--z, 5px); height: calc(var(--z, 5px) * 1.6); margin-left: calc(var(--z, 5px) / -2); border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+  background: linear-gradient(#fff, #8fdcff); box-shadow: 0 0 6px rgba(143,220,255,.85);
+  animation: arrosage var(--t, 1.1s) cubic-bezier(.5,0,1,1) var(--r, 0s) infinite; }
+/* en pause tant que la diapositive n'est pas affichée (après les abréviations animation, qui remettent la lecture) */
+.brume, .jet, .goutte { animation-play-state: paused; }
+.on .brume, .on .jet, .on .goutte { animation-play-state: running; }
+@keyframes brume { 0% { transform: scale(.4); opacity: 0; } 30% { opacity: .9; } 100% { transform: scale(1.3); opacity: 0; } }
+@keyframes jet { 0% { transform: scaleY(.15); opacity: 0; } 25% { opacity: .95; } 100% { transform: scaleY(1); opacity: 0; } }
+@keyframes arrosage { 0% { transform: translate(0,0); opacity: 0; } 8% { opacity: 1; } 85% { opacity: .85; } 100% { transform: translate(var(--dx,0), var(--h,130px)); opacity: 0; } }
+@keyframes flotte { 50% { translate: 0 -7px; } }
+/* Sujets qui sortent du cercle : un peu réduits quand le cadre se resserre, pour que leurs bouts ne soient pas coupés */
+@media (max-width: 1360px) { .pop > * { scale: .92; } }
+@media (max-width: 1240px) { .pop > * { scale: .86; } }
+@media (max-width: 620px) { .pop > * { scale: .84; } }
+/* Soleil de la diapositive du panneau solaire */
+.soleil { translate: -50% -50%; pointer-events: none; }
+.soleil > span { position: absolute; border-radius: 9999px; }
+.soleil-halo { inset: -22%; background: radial-gradient(circle, rgba(255,214,110,.75) 0%, rgba(255,190,70,.32) 38%, rgba(255,176,32,0) 70%); animation: soleil-pulse 4s ease-in-out infinite; }
+.soleil-rayons { inset: 0; background: repeating-conic-gradient(from 0deg, rgba(255,226,140,.95) 0deg 3.5deg, rgba(255,226,140,0) 3.5deg 15deg);
+  -webkit-mask-image: radial-gradient(circle, transparent 30%, #000 36%, #000 44%, transparent 72%); mask-image: radial-gradient(circle, transparent 30%, #000 36%, #000 44%, transparent 72%);
+  animation: soleil-tourne 40s linear infinite; }
+.soleil-disque { inset: 31%; background: radial-gradient(circle at 38% 35%, #FFF6CC 0%, #FFD966 45%, #FFB020 100%); box-shadow: 0 0 28px 8px rgba(255,190,70,.75); }
+.soleil:not(.on) span { animation-play-state: paused; }
+@keyframes soleil-tourne { to { transform: rotate(360deg); } }
+@keyframes soleil-pulse { 50% { transform: scale(1.12); opacity: .85; } }
+/* Robot IA animé */
+.ia > span { position: absolute; translate: -50% -50%; pointer-events: none; }
+.ia-lueur { border-radius: 9999px; background: radial-gradient(circle, rgba(120,190,255,.9) 0%, rgba(70,130,255,0) 68%); mix-blend-mode: screen; opacity: .15; animation: ia-lueur 2.6s ease-in-out infinite; animation-delay: var(--d, 0s); }
+.ia-antenne { animation-duration: 1.4s; }
+.ia-paupiere { border-radius: 50%; background: #020618; box-shadow: 0 0 2px 2px #020618; transform: scaleY(0); transform-origin: 50% 0; animation: ia-cligne 5.4s ease-in-out infinite; translate: -50% -50%; }
+.ia-onde { border: 2px solid rgba(140,210,255,.95); border-radius: 50%; box-shadow: 0 0 12px rgba(80,170,255,.85), inset 0 0 10px rgba(80,170,255,.5); mix-blend-mode: screen; opacity: 0; animation: ia-onde 3.2s ease-out infinite; animation-delay: var(--d, 0s); }
+.ia-etincelle { width: var(--z, 4px); height: var(--z, 4px); border-radius: 9999px; background: radial-gradient(circle, #fff 20%, #8fdcff 60%, rgba(143,220,255,0)); box-shadow: 0 0 8px 2px rgba(120,200,255,.8); opacity: 0; animation: ia-etincelle var(--t, 3s) ease-out infinite; animation-delay: var(--d, 0s); }
+.ia:not(.on) > span { animation-play-state: paused; }
+@keyframes ia-lueur { 50% { opacity: .85; scale: 1.18; } }
+@keyframes ia-cligne { 0%, 90%, 100% { transform: scaleY(0); } 93%, 95.5% { transform: scaleY(1); } }
+@keyframes ia-onde { 0% { transform: scale(.72); opacity: .8; } 100% { transform: scale(1.38); opacity: 0; } }
+@keyframes ia-etincelle { 0% { transform: translate(0,0) scale(.5); opacity: 0; } 15% { opacity: 1; } 100% { transform: translate(var(--dx, 0), calc(var(--h, 100px) * -1)) scale(1); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .ia > span { display: none; } }
+/* Suivi GPS : deux taxis roulent sur la route, en sens opposés, et s'effacent là où elle passe derrière le téléphone */
+.taxi { animation: roule var(--t, 7s) linear infinite; animation-delay: var(--d, 0s); opacity: 0; }
+.gps:not(.on) .taxi { animation-play-state: paused; }
+@keyframes roule { 0% { offset-distance: 0%; opacity: 0; } 7% { opacity: 1; } 93% { opacity: 1; } 100% { offset-distance: 100%; opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .taxi { offset-distance: var(--repos, 50%); opacity: 1; } }
+/* Drone industriel : hélices qui tournent (disque flou vu en perspective) et vol stationnaire */
+.helice { position: absolute; translate: -50% -50%; pointer-events: none; }
+.helice::before { content: ''; position: absolute; inset: 0; border-radius: 50%; background: radial-gradient(closest-side, rgba(226,234,248,.55) 0%, rgba(226,234,248,.42) 60%, rgba(226,234,248,.2) 85%, rgba(226,234,248,0) 100%); }
+.helice > i { position: absolute; inset: 3%; border-radius: 50%;
+  background: conic-gradient(from 0deg, rgba(10,12,18,.9) 0deg, rgba(10,12,18,0) 40deg, rgba(10,12,18,.9) 180deg, rgba(10,12,18,0) 220deg, rgba(10,12,18,.9) 360deg);
+  -webkit-mask-image: radial-gradient(closest-side, #000 0%, #000 80%, transparent 100%); mask-image: radial-gradient(closest-side, #000 0%, #000 80%, transparent 100%);
+  animation: helice var(--t, .2s) linear infinite; animation-direction: var(--s, normal); }
+.pop > :not(.on) .helice > i { animation-play-state: paused; }
+@keyframes helice { to { transform: rotate(360deg); } }
+@keyframes vol { 0%, 100% { translate: 0 0; rotate: 0deg; } 25% { translate: 5px -9px; rotate: -.9deg; } 50% { translate: 0 -14px; rotate: 0deg; } 75% { translate: -5px -7px; rotate: .9deg; } }
+/* FAQ : plus qui devient moins à l'ouverture, ouverture en douceur quand le navigateur sait l'animer */
+.faq-plus { position: relative; flex: none; width: 36px; height: 36px; border-radius: 9999px; background: #E6EEFC; transition: background-color .2s; }
+.faq-plus::before, .faq-plus::after { content: ''; position: absolute; left: 50%; top: 50%; width: 14px; height: 2px; margin: -1px 0 0 -7px; border-radius: 2px; background: #1F5FD1; transition: transform .3s ease, background-color .2s; }
+.faq-plus::after { transform: rotate(90deg); }
+.faq-item[open] .faq-plus { background: #1F5FD1; }
+.faq-item[open] .faq-plus::before, .faq-item[open] .faq-plus::after { background: #fff; }
+.faq-item[open] .faq-plus::after { transform: rotate(0deg); }
+@media (prefers-reduced-motion: no-preference) {
+  .faq-item { interpolate-size: allow-keywords; }
+  .faq-item::details-content { block-size: 0; overflow: clip; transition: block-size .3s ease, content-visibility .3s allow-discrete; }
+  .faq-item[open]::details-content { block-size: auto; }
+}
+@media (prefers-reduced-motion: reduce) { .brume, .jet, .goutte { display: none; } }
+/* Nos pôles : bandeau de pastilles + catégories en cercles */
+.cat-barre { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; padding: 8px; border-radius: 9999px; background: #06122E; }
+.cat-barre::-webkit-scrollbar { display: none; }
+.cat-barre a { flex: none; display: inline-flex; align-items: center; gap: 8px; padding: 9px 18px; border-radius: 9999px; background: rgba(255,255,255,.08); color: #fff; font-size: 14px; font-weight: 600; text-decoration: none; white-space: nowrap; transition: background-color .25s, color .25s; }
+.cat-barre a i { font-size: 17px; color: #FFB020; transition: color .25s; }
+.cat-barre a:hover, .cat-barre a:focus-visible { background: #fff; color: #06122E; }
+.cat-barre a:hover i, .cat-barre a:focus-visible i { color: #1F5FD1; }
+@media (min-width: 1024px) { .cat-barre { justify-content: space-between; } .cat-barre a { flex: 1 1 0; justify-content: center; } }
+.cat-titre-deco { display: inline-flex; align-items: center; gap: 10px; }
+.cat-titre-deco::before, .cat-titre-deco::after { content: ''; width: 28px; height: 2px; border-radius: 2px; background: #FFB020; }
+.cat { display: flex; flex-direction: column; align-items: center; text-align: center; color: #0B1530; text-decoration: none; border-radius: 24px; }
+.cat:focus-visible { outline: 2px solid #1F5FD1; outline-offset: 6px; }
+.cat-rond { position: relative; display: block; width: 100%; max-width: 184px; aspect-ratio: 1; border-radius: 50%; overflow: hidden; background: #E1EEFB;
+  box-shadow: 0 0 0 6px #fff, 0 0 0 7px #D5E2F5, 0 22px 36px -22px rgba(6,18,46,.45); transition: box-shadow .3s, transform .3s; }
+.cat-rond img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .6s cubic-bezier(.2,.7,.2,1); }
+.cat-rond i { position: absolute; right: 10%; bottom: 10%; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: #fff; color: #1F5FD1; font-size: 19px; box-shadow: 0 6px 14px -6px rgba(6,18,46,.5); transition: background-color .3s, color .3s; }
+.cat h3 { margin: 22px 0 4px; font-size: 17px; line-height: 1.25; color: inherit; transition: color .3s; }
+.cat-sous { font-size: 13.5px; color: #3E4A63; }
+.cat:hover .cat-rond, .cat:focus-visible .cat-rond { box-shadow: 0 0 0 6px #fff, 0 0 0 8px #1F5FD1, 0 28px 42px -22px rgba(21,78,180,.6); transform: translateY(-5px); }
+.cat:hover .cat-rond img, .cat:focus-visible .cat-rond img { transform: scale(1.07); }
+.cat:hover .cat-rond i, .cat:focus-visible .cat-rond i { background: #1F5FD1; color: #fff; }
+.cat:hover h3, .cat:focus-visible h3 { color: #1F5FD1; }
+/* Pourquoi nous choisir : grande photo ronde + deux petits cercles */
+.atout-ico { display: grid; place-items: center; flex: none; width: 50px; height: 50px; border-radius: 15px; border: 1.5px solid #CFDCF3; color: #1F5FD1; font-size: 23px; transition: background-color .3s, border-color .3s, color .3s; }
+.atout:hover .atout-ico { background: #1F5FD1; border-color: #1F5FD1; color: #fff; }
+.rond-photo { position: absolute; border-radius: 50%; overflow: hidden; border: 7px solid #fff; box-shadow: 0 22px 40px -22px rgba(6,18,46,.55); }
+.rond-photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+/* Réalisations : une grande carte, la carte survolée prend sa place */
+.projets { display: grid; grid-template-columns: minmax(0, 1fr); gap: 32px; }
+.projet { min-width: 0; }
+.projet-photo { aspect-ratio: 4 / 3; }
+@media (min-width: 640px) {
+  .projets { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 12px; }
+  .projet:first-child { grid-column: 1 / -1; }
+  .projet:first-child .projet-photo { aspect-ratio: 16 / 9; }
+}
+@media (min-width: 1024px) {
+  .projets { display: flex; gap: 12px; min-height: 545px; }
+  .projet, .projet:first-child { flex: 1 1 0; transition: flex-grow .55s cubic-bezier(.2,.7,.2,1); }
+  .projet.actif { flex-grow: 2; }
+  .projet .projet-photo, .projet:first-child .projet-photo { aspect-ratio: auto; height: 220px; transition: height .60s cubic-bezier(.2,.7,.2,1); }
+  .projet.actif .projet-photo, .projet.actif:first-child .projet-photo { height: 350px; }
+}
+/* Pourquoi nous choisir : les deux petits cercles se pressent comme une éponge (écrasement, puis retour élastique) */
+@media (prefers-reduced-motion: no-preference) {
+  .eponge { animation: eponge 3.6s ease-in-out infinite; transform-origin: 50% 60%; }
+  .eponge-2 { animation-delay: -1.8s; animation-duration: 4.2s; }
+  @keyframes eponge {
+    0%, 100% { transform: scale(1, 1); }
+    18%      { transform: scale(1.14, .84); }
+    32%      { transform: scale(.92, 1.1); }
+    44%      { transform: scale(1.05, .96); }
+    56%      { transform: scale(.98, 1.02); }
+    68%      { transform: scale(1, 1); }
+  }
+}
+/* Robot IA du carrousel : il salue (bras qui pivote) et dit bonjour dans une bulle qui sort de sa bouche */
+.ia { container-type: inline-size; }
+.ia-bras { position: absolute; display: block; height: auto; transform-origin: 88% 46%; filter: drop-shadow(0 8px 10px rgba(2,10,40,.35)); }
+.ia-parole { position: absolute; inset: 0; pointer-events: none; transform-origin: 49% 36.6%; opacity: 0; }
+.ia-queue { position: absolute; inset: 0; width: 100%; height: 100%; fill: #fff; filter: drop-shadow(0 4px 8px rgba(2,10,40,.3)); }
+.ia-bulle { position: absolute; left: 66%; top: 33%; width: 34%; padding: 2.2cqw 2.6cqw; border-radius: 3cqw; background: #fff; color: #0B1530; font-size: 3.3cqw; font-weight: 700; line-height: 1.3; box-shadow: 0 10px 22px -8px rgba(2,10,40,.45); }
+@media (prefers-reduced-motion: no-preference) {
+  .ia.on .ia-bras { animation: salue 6s ease-in-out both; }
+  .ia.on .ia-parole { animation: parle 6s ease both; }
+}
+@media (prefers-reduced-motion: reduce) { .ia-parole { opacity: 1; } }
+@keyframes salue {
+  0%, 4%   { transform: rotate(0deg); }
+  12%      { transform: rotate(38deg); }
+  20%      { transform: rotate(24deg); }
+  28%      { transform: rotate(40deg); }
+  36%      { transform: rotate(22deg); }
+  44%      { transform: rotate(40deg); }
+  52%      { transform: rotate(22deg); }
+  60%      { transform: rotate(38deg); }
+  68%      { transform: rotate(26deg); }
+  76%      { transform: rotate(36deg); }
+  90%, 100% { transform: rotate(0deg); }
+}
+@keyframes parle {
+  0%, 6%   { opacity: 0; transform: scale(.1); }
+  14%      { opacity: 1; transform: scale(1.06); }
+  18%      { opacity: 1; transform: scale(1); }
+  82%      { opacity: 1; transform: scale(1); }
+  92%, 100% { opacity: 0; transform: scale(.1); }
+}
